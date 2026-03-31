@@ -74,3 +74,38 @@ VlnPlot(seurat_object, features =  c("S.Score", "G2M.Score", "Percent_mt"))
 
 # Clustering visualization
 DimPlot(seurat_object, group.by = "SCT_snn_res.0.02", label = T, label.size = 4, repel = T) 
+
+
+# Annotations
+
+# Find variable markers among clusters
+# Preprocessing of SCT assay
+seurat_object <- PrepSCTFindMarkers(seurat_object, assay = "SCT", verbose = TRUE) # Optional, when normalizing with SCT and after integration itt may be necessary
+
+markers <- FindAllMarkers(object = seurat_object,
+                          only.pos = TRUE,
+                          verbose = FALSE,
+                          group.by = "SCT_snn_res.1", # Set the resolution you are going to work with
+                          min.pct = 0.25,
+                          logfc.threshold = 0.5) # Threshold for better marker finding
+# Top n genes for each cluster
+topn_genes <- markers %>% group_by(cluster) %>% top_n(n, avg_log2FC)
+topn_genes <- topn_genes %>%
+  filter(!grepl("^ENSGAL", gene)) # For filtering of genes without a gene name (optional)
+
+# Top genes visualization
+DoHeatmap(seurat_object, group.by = "SCT_snn_res.1", features=topn_genes$gene, raster=F, label=F) +
+  theme(axis.text.y = element_text(size = 8))
+DotPlot(seurat_object, features = unique(topn_genes$gene), group.by = "SCT_snn_res.1") + coord_flip() +
+  theme(axis.text.y = element_text(size = 8))
+
+# Rename Idents
+Idents(seurat_object) <- "SCT_snn_res.1" # Resolution you are working with
+seurat_object <- RenameIdents(seurat_object,
+                                 c("0" = "Name1",
+                                   "1" = "Name2",
+                                   "2" = "Name3",
+                                   "3" = "Name2",
+                                   "4" = "Name1",
+                                   "5" = "Name2",
+                                   "6" = "Name4")) # Match cluster number with the new cluster name
