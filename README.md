@@ -21,7 +21,7 @@ This repository contains tools for working with R (v4.5.2) in RStudio (v0.18.0),
 
 ### General R language packages
 
-- `ggplot2` (v4.0.2): [Package tidyverse website](https://ggplot2.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.ggplot2)
+- `ggplot2` (v4.0.2): [Wickham, H., (2016)](https://doi.org/10.1007/978-3-319-24277-4), [ggplot2 tidyverse](https://ggplot2.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.ggplot2)
 - `dplyr` (v1.2.0): [Package tidyverse website](https://dplyr.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.dplyr)
 - `stringr` (v1.6.0): [Package tidyverse website](https://stringr.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.stringr)
 - `tibble` (v1.6.0): [Package tidyverse website](https://tibble.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.tibble)
