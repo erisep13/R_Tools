@@ -25,8 +25,8 @@ This repository contains tools for working with R (v4.5.2) in RStudio (v0.18.0),
 ### General R language packages
 
 - `ggplot2` (v4.0.2): [Wickham, H., (2016)](https://doi.org/10.1007/978-3-319-24277-4), [ggplot2 tidyverse](https://ggplot2.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.ggplot2)
-- `dplyr` (v1.2.0): [Package tidyverse website](https://dplyr.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.dplyr)
-- `stringr` (v1.6.0): [Package tidyverse website](https://stringr.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.stringr)
-- `tibble` (v1.6.0): [Package tidyverse website](https://tibble.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.tibble)
-- `patchwork`(v1.3.2): [Official package website](https://patchwork.data-imaginist.com/) & [CRAN package](https://doi.org/10.32614/CRAN.package.patchwork)
-- `paletteer` (v1.7.0): [CRAN package](https://doi.org/10.32614/CRAN.package.paletteer)
+- `dplyr` (v1.2.0): [Wickham, H., *et al.*, (2026)](https://dplyr.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.dplyr)
+- `stringr` (v1.6.0): [Wickham, H., (2025)](https://stringr.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.stringr)
+- `tibble` (v1.6.0): [Müller, K. & Wickham, H. (2025)](https://tibble.tidyverse.org/) & [CRAN package](https://doi.org/10.32614/CRAN.package.tibble)
+- `patchwork`(v1.3.2): [Pedersen, T. (2025)](https://patchwork.data-imaginist.com/) & [CRAN package](https://doi.org/10.32614/CRAN.package.patchwork)
+- `paletteer` (v1.7.0): [Hvitfeldt, E. (2021)](https://github.com/EmilHvitfeldt/paletteer), [paletteer official website](https://emilhvitfeldt.github.io/paletteer/index.html) & [CRAN package](https://doi.org/10.32614/CRAN.package.paletteer)
