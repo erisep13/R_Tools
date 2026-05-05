@@ -57,11 +57,11 @@ seurat_object <- SCTransform(seurat_object, vars.to.regress = c("S.Score", "G2M.
 # Preprocessing and clustering
 seurat_object <- RunPCA(seurat_object)
 ElbowPlot(seurat_object, ndims=50) # Choose optimal PCs/dimensions for UMAP calculation
-seurat_object <- FindNeighbors(seurat_object, verbose = FALSE)
+seurat_object <- FindNeighbors(seurat_object, verbose = FALSE, dims = 1:30) # Set the dimensions chosen in PCA's Elbow plot
 seurat_object <- FindClusters(seurat_object, resolution = c(0.02,0.5,1,1.5,2)) # Try different resolutions for better model fitting
 
 set.seed(123) # Set random seed for reproducibility of UMAP plot due to randomness
-seurat_object <- RunUMAP(seurat_object, reduction = "pca", dims = 1:30) # Set the dimensions chosen in PCA's Elbow plot
+seurat_object <- RunUMAP(seurat_object, reduction = "pca", dims = 1:30) # Set the dimensions chosen in PCA's Elbow plot, consistent with number of PCs in FindNeighbors()
 
 
 # Visualization
