@@ -30,18 +30,18 @@ anchors <- FindIntegrationAnchors(object.list = seurat_object_list,
                                   reduction = "cca") # Default, other options include "rpca", etc.
 
 # Integration
-integrated_object <- IntegrateData(anchorset = anchors)
+integrated_object <- IntegrateData(anchorset = anchors, normalization.method = "SCT")
 
 
 # Necessary batch effect analysis via agrupation given the origin of samples, species... or other confounding variables
 
-# For dataset preprocessing and clusterization change the default assay to SCT or RNA
-DefaultAssay(integrated_object) <- "SCT" # or RNA
+# For dataset preprocessing and clusterization leave the default assay after integration: "integrated"
+DefaultAssay(integrated_object) <- "integrated" # NOT RNA
 
 # The new dataset must be preprocessed, clusterd and annotated as the individual objects
 
 
-# Previous additional step if you are running the integration upon objects created from previous integrations
+# PREVIOUS additional step if you are running the integration upon objects created from previous integrations
 
 # Set default assay to RNA
 DefaultAssay(seurat_object1) <- "RNA"
@@ -59,12 +59,3 @@ seurat_object_list <- lapply(X = seurat_object_list, FUN = SCTransform, method =
                              vars.to.regress = c("S.Score", "G2M.Score","Percent_mt"))
 
 # THIS CAN RISE BATCH EFFECT PROBLEMS
-
-# For integration of previously integrated datasets we can try simply merging the datasets, it usually does not rise batch effect
-DefaultAssay(integrated_seurat_object1) <- "RNA"
-DefaultAssay(integrated_seurat_object2) <- "RNA"
-
-integrated_object <- merge(integrated_seurat_object1, integrated_seurat_object2)
-
-
-# Preprocessing, clustering and annotations
